@@ -23,15 +23,21 @@ all: obj-dir objectives
 obj-dir:
 	./compile-scripts/make-obj-dir.sh
 
-objectives:
+objectives: objectives-base n-d-objectives 2d-objectives
+
+objectives-base:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/ExperimentObjective.cpp -o obj/objectives/ExperimentObjective.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/ContinuousObjective.cpp -o obj/objectives/continuous/ContinuousObjective.o
+
+n-d-objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/SphereFunction.cpp -o obj/objectives/continuous/n-d/SphereFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/RosenbrockFunction.cpp -o obj/objectives/continuous/n-d/RosenbrockFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/StyblinskiTangFunction.cpp -o obj/objectives/continuous/n-d/StyblinskiTangFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/RastriginFunction.cpp -o obj/objectives/continuous/n-d/RastriginFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/GriewankFunction.cpp -o obj/objectives/continuous/n-d/GriewankFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/F8F2Function.cpp -o obj/objectives/continuous/n-d/F8F2Function.o
+
+2d-objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/AckleyFunction.cpp -o obj/objectives/continuous/2d/AckleyFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/BealesFunction.cpp -o obj/objectives/continuous/2d/BealesFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/GoldsteinPriceFunction.cpp -o obj/objectives/continuous/2d/GoldsteinPriceFunction.o
