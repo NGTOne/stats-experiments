@@ -19,6 +19,7 @@ SHAREDLIB = -L/usr/local/lib -lHierGA
 endif
 
 all: obj-dir objectives
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/StatsExperiment.cpp -o obj/StatsExperiment.o
 
 obj-dir:
 	./compile-scripts/make-obj-dir.sh
