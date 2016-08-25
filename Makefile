@@ -30,6 +30,7 @@ objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/RosenbrockFunction.cpp -o obj/objectives/continuous/n-d/RosenbrockFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/StyblinskiTangFunction.cpp -o obj/objectives/continuous/n-d/StyblinskiTangFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/RastriginFunction.cpp -o obj/objectives/continuous/n-d/RastriginFunction.o
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/GriewankFunction.cpp -o obj/objectives/continuous/n-d/GriewankFunction.o
 
 clean:
 	find obj -name *.o | xargs rm -f
