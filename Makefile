@@ -34,6 +34,7 @@ objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/F8F2Function.cpp -o obj/objectives/continuous/n-d/F8F2Function.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/AckleyFunction.cpp -o obj/objectives/continuous/2d/AckleyFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/BealesFunction.cpp -o obj/objectives/continuous/2d/BealesFunction.o
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/GoldsteinPriceFunction.cpp -o obj/objectives/continuous/2d/GoldsteinPriceFunction.o
 
 clean:
 	find obj -name *.o | xargs rm -f
