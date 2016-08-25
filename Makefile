@@ -28,6 +28,7 @@ objectives: objectives-base n-d-objectives 2d-objectives
 objectives-base:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/ExperimentObjective.cpp -o obj/objectives/ExperimentObjective.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/ContinuousObjective.cpp -o obj/objectives/continuous/ContinuousObjective.o
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/discrete/binary/BinaryObjective.cpp -o obj/objectives/discrete/binary/BinaryObjective.o
 
 n-d-objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/SphereFunction.cpp -o obj/objectives/continuous/n-d/SphereFunction.o
