@@ -25,6 +25,7 @@ obj-dir:
 
 objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/ExperimentObjective.cpp -o obj/objectives/ExperimentObjective.o
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/SphereFunction.cpp -o obj/objectives/continuous/n-d/SphereFunction.o
 
 clean:
 	find obj -name *.o | xargs rm -f
