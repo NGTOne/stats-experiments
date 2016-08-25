@@ -38,6 +38,7 @@ objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/BoothsFunction.cpp -o obj/objectives/continuous/2d/BoothsFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/BukinNo6Function.cpp -o obj/objectives/continuous/2d/BukinNo6Function.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/MatyasFunction.cpp -o obj/objectives/continuous/2d/MatyasFunction.o
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/LeviNo13Function.cpp -o obj/objectives/continuous/2d/LeviNo13Function.o
 
 clean:
 	find obj -name *.o | xargs rm -f
