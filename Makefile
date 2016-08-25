@@ -29,6 +29,7 @@ objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/SphereFunction.cpp -o obj/objectives/continuous/n-d/SphereFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/RosenbrockFunction.cpp -o obj/objectives/continuous/n-d/RosenbrockFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/StyblinskiTangFunction.cpp -o obj/objectives/continuous/n-d/StyblinskiTangFunction.o
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/RastriginFunction.cpp -o obj/objectives/continuous/n-d/RastriginFunction.o
 
 clean:
 	find obj -name *.o | xargs rm -f
