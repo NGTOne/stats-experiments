@@ -8,8 +8,8 @@ float BealesFunction::checkFitness(Genome* genome) {
 	double x = genome->getIndex<double>(0);
 	double y = genome->getIndex<double>(1);
 	return -(
-		pow(1.5 - x + x * y, 2) +
-		pow(2.25 - x + pow(x * y, 2), 2) +
-		pow(2.625 - x + pow(x * y, 3), 2)
+		pow(1.5 - x + x*y, 2) +
+		pow(2.25 - x + x*pow(y, 2), 2) +
+		pow(2.625 - x + x*pow(y, 3), 2)
 	);
 }
