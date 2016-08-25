@@ -1,24 +1,12 @@
 #ifndef OBJECTIVES_CONTINUOUS_ND_SphereFunction
 #define OBJECTIVES_CONTINUOUS_ND_SphereFunction
 
-#include "../../ExperimentObjective.hpp"
+#include "../ContinuousObjective.hpp"
 
-class SphereFunction : public ExperimentObjective {
-	private:
-	double bottomVal;
-	double topVal;
-
+class SphereFunction : public ContinuousObjective {
 	public:
-	SphereFunction(
-		unsigned int genomeLength,
-		double bottomVal,
-		double topVal
-	);
-
+	using ContinuousObjective::ContinuousObjective;
 	float checkFitness(Genome* genome);
-
-	std::vector<Locus*> getLoci();
-	ToStringFunction* getToString();
 };
 
 #endif
