@@ -1,9 +1,14 @@
 #include "StatsExperiment.hpp"
+#include <sstream>
 
 StatsExperiment::StatsExperiment(
 	unsigned int populationSize,
 	ExperimentObjective* objective,
 	EvolutionarySystem* system,
+	std::string filePrefix,
+	unsigned int runNumber,
+	double targetFitness,
+	double epsilon,
 	unsigned int numEpochs
 ) {
 	this->ea = new HierarchicalEA(numEpochs);
@@ -20,6 +25,15 @@ StatsExperiment::StatsExperiment(
 	);
 
 	this->ea->setEvolutionOrder({"P1"});
+
+	std::stringstream ss;
+	ss << filePrefix << "-optimum-run" << runNumber << ".csv";
+	this->ea->addPopulationInstrumentation<TargetReachedGeneration>(
+		"P1",
+		ss.str(),
+		targetFitness,
+		epsilon
+	);
 }
 
 StatsExperiment::~StatsExperiment() {
