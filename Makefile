@@ -18,8 +18,7 @@ else ifeq ($(PLATFORM), Darwin)
 SHAREDLIB = -L/usr/local/lib -lHierGA
 endif
 
-all: obj-dir objectives experiments
-	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/StatsExperiment.cpp -o obj/StatsExperiment.o
+all: obj-dir objectives other-core experiments
 
 obj-dir:
 	./compile-scripts/make-obj-dir.sh
@@ -28,6 +27,9 @@ experiments:
 	./compile-scripts/make-experiments.sh
 
 objectives: objectives-base n-d-objectives 2d-objectives binary-objectives
+
+other-core:
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/StatsExperiment.cpp -o obj/StatsExperiment.o
 
 objectives-base:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/ExperimentObjective.cpp -o obj/objectives/ExperimentObjective.o

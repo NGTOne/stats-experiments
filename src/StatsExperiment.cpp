@@ -26,11 +26,12 @@ StatsExperiment::StatsExperiment(
 
 	this->ea->setEvolutionOrder({"P1"});
 
-	std::stringstream ss;
-	ss << filePrefix << "-optimum-run" << runNumber << ".csv";
-	this->ea->addPopulationInstrumentation<TargetReachedGeneration>(
-		"P1",
-		ss.str(),
+	this->filePrefix = filePrefix;
+	this->runNumber = runNumber;
+
+	this->addInstrument<TargetReachedGeneration>(
+		"optimum-run",
+		".csv",
 		targetFitness,
 		epsilon
 	);

@@ -7,6 +7,8 @@
 class StatsExperiment {
 	private:
 	HierarchicalEA* ea;
+	std::string filePrefix;
+	unsigned int runNumber;
 
 	public:
 	StatsExperiment(
@@ -22,6 +24,30 @@ class StatsExperiment {
 	~StatsExperiment();
 
 	void run();
+
+	template <typename InstrType, typename... params>
+	void addInstrument(
+		std::string fileInfix,
+		std::string fileSuffix,
+		params... as
+	);
 };
+
+template <typename InstrType, typename... params>
+void StatsExperiment::addInstrument(
+	std::string fileInfix,
+	std::string fileSuffix,
+	params... as
+) {
+	std::stringstream ss;
+	ss << this->filePrefix << "-" << fileInfix <<
+		"-" << this->runNumber << fileSuffix;
+
+	this->ea->addPopulationInstrumentation<InstrType>(
+		"P1",
+		ss.str(),
+		as...
+	);
+}
 
 #endif
