@@ -18,11 +18,14 @@ else ifeq ($(PLATFORM), Darwin)
 SHAREDLIB = -L/usr/local/lib -lHierGA
 endif
 
-all: obj-dir objectives
+all: obj-dir objectives experiments
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/StatsExperiment.cpp -o obj/StatsExperiment.o
 
 obj-dir:
 	./compile-scripts/make-obj-dir.sh
+
+experiments:
+	./compile-scripts/make-experiments.sh
 
 objectives: objectives-base n-d-objectives 2d-objectives binary-objectives
 
