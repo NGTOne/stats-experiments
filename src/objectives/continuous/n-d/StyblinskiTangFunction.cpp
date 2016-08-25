@@ -9,8 +9,8 @@ StyblinskiTangFunction::StyblinskiTangFunction(
 float StyblinskiTangFunction::checkFitness(Genome* genome) {
 	float total = 0;
 	for (unsigned int i = 0; i < this->genomeLength; i++) {
-		double value = genome->getIndex<double>(i);
-		total += pow(value, 4) - 16 * pow(value, 2) + 5 * value;
+		double x = genome->getIndex<double>(i);
+		total += pow(x, 4) - 16*pow(x, 2) + 5*x;
 	}
 
 	return -(total/2);
