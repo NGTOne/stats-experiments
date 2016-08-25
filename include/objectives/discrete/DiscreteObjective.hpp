@@ -24,7 +24,7 @@ template <typename T>
 DiscreteObjective<T>::DiscreteObjective(
 	unsigned int genomeLength,
 	T bottomVal,
-	T topval
+	T topVal
 ) : ExperimentObjective(genomeLength) {
 	this->bottomVal = bottomVal;
 	this->topVal = topVal;

@@ -7,7 +7,10 @@ BukinNo6Function::BukinNo6Function() : ContinuousObjective(2) {}
 float BukinNo6Function::checkFitness(Genome* genome) {
 	double x = genome->getIndex<double>(0);
 	double y = genome->getIndex<double>(1);
-	return -(100*sqrt(abs(y - 0.01*pow(x, 2))) + 0.01*abs(x + 10));
+	return -(
+		100*sqrt(std::abs(y - 0.01*pow(x, 2))) +
+		0.01*std::abs(x + 10)
+	);
 }
 
 std::vector<Locus*> BukinNo6Function::getLoci() {
