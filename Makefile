@@ -32,6 +32,7 @@ objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/RastriginFunction.cpp -o obj/objectives/continuous/n-d/RastriginFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/GriewankFunction.cpp -o obj/objectives/continuous/n-d/GriewankFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/n-d/F8F2Function.cpp -o obj/objectives/continuous/n-d/F8F2Function.o
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/AckleyFunction.cpp -o obj/objectives/continuous/2d/AckleyFunction.o
 
 clean:
 	find obj -name *.o | xargs rm -f
