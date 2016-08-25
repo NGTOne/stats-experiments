@@ -23,7 +23,7 @@ all: obj-dir objectives
 obj-dir:
 	./compile-scripts/make-obj-dir.sh
 
-objectives: objectives-base n-d-objectives 2d-objectives
+objectives: objectives-base n-d-objectives 2d-objectives binary-objectives
 
 objectives-base:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/ExperimentObjective.cpp -o obj/objectives/ExperimentObjective.o
@@ -48,6 +48,9 @@ n-d-objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/LeviNo13Function.cpp -o obj/objectives/continuous/2d/LeviNo13Function.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/ThreeHumpCamelFunction.cpp -o obj/objectives/continuous/2d/ThreeHumpCamelFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/continuous/2d/EasomFunction.cpp -o obj/objectives/continuous/2d/EasomFunction.o
+
+binary-objectives:
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/discrete/binary/1maxFunction.cpp -o obj/objectives/discrete/binary/1maxFunction.o
 
 clean:
 	find obj -name *.o | xargs rm -f
