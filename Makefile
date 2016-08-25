@@ -51,6 +51,7 @@ n-d-objectives:
 
 binary-objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/discrete/binary/1maxFunction.cpp -o obj/objectives/discrete/binary/1maxFunction.o
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/discrete/binary/LongestFragmentFunction.cpp -o obj/objectives/discrete/binary/LongestFragmentFunction.o
 
 clean:
 	find obj -name *.o | xargs rm -f
