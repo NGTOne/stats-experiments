@@ -53,6 +53,7 @@ n-d-objectives:
 binary-objectives:
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/discrete/binary/1maxFunction.cpp -o obj/objectives/discrete/binary/1maxFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/discrete/binary/LeadingOnesFunction.cpp -o obj/objectives/discrete/binary/LeadingOnesFunction.o
+	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/discrete/binary/LOTZFunction.cpp -o obj/objectives/discrete/binary/LOTZFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/discrete/binary/LongestFragmentFunction.cpp -o obj/objectives/discrete/binary/LongestFragmentFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/discrete/binary/AverageFragmentFunction.cpp -o obj/objectives/discrete/binary/AverageFragmentFunction.o
 	$(CPPC) $(CPPFLAGS) $(INCLUDE) src/objectives/discrete/binary/H_IFFFunction.cpp -o obj/objectives/discrete/binary/H_IFFFunction.o
