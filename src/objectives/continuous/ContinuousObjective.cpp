@@ -1,6 +1,10 @@
 #include "objectives/continuous/ContinuousObjective.hpp"
 
 ContinuousObjective::ContinuousObjective(
+	unsigned int genomeLength
+) : ExperimentObjective(genomeLength) {}
+
+ContinuousObjective::ContinuousObjective(
 	unsigned int genomeLength,
 	double bottomVal,
 	double topVal

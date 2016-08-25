@@ -9,6 +9,7 @@ class ContinuousObjective: public ExperimentObjective {
 	double topVal;
 
 	public:
+	ContinuousObjective(unsigned int genomeLength);
 	ContinuousObjective(
 		unsigned int genomeLength,
 		double bottomVal,
