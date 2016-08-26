@@ -3,4 +3,4 @@
 *.a
 *.swp
 results
-./experiments
+experiments-to-run
