@@ -23,6 +23,7 @@ do
 
 	mkdir -p experiments-to-run/$targetDir
 	mkdir -p obj/experiments/$targetDir
+	mkdir -p results/$dirname
 	g++ -c -g -Wall -std=gnu++0x -Iinclude -I/usr/local/include -I$EIGEN $experiment -o obj/experiments/$dirname.o
 	g++ -o experiments-to-run/$dirname obj/experiments/$dirname.o $shared_objs $SHARED
 done
