@@ -17,40 +17,31 @@ unsigned int H_IFFFunction::checkChunks(
 	unsigned int total = 0;
 	unsigned int chunkSize = pow(this->base, chunkPower);
 
-	if (chunkPower == 0) {
-		total += this->genomeLength;
-	} else {
-		std::vector<unsigned int> chunkVals;
-		for (unsigned int i=0; i < this->genomeLength; i += chunkSize) {
-			unsigned int total = 0;
-			for (unsigned int k = 0; k < chunkSize; k++)
-				total += genome->getIndex<unsigned int>(i + k);
-			chunkVals.push_back(total);
+	std::vector<unsigned int> chunkVals;
+	for (unsigned int i=0; i < this->genomeLength; i += chunkSize) {
+		unsigned int chunkTotal = 0;
+		for (unsigned int k = 0; k < chunkSize; k++)
+			chunkTotal += genome->getIndex<unsigned int>(i + k);
+		chunkVals.push_back(chunkTotal);
 
-			if (chunkVals.size() == this->base) {
-				bool add = true;
-				bool matchingChunks = 0;
-				for (auto chunkVal: chunkVals) {
-					if (
-						chunkVal != 0 &&
-						chunkVal != chunkSize
-					) {
-						add = false;
-						break;
-					} else {
-						matchingChunks +=
-							chunkVal/chunkSize;
-					}
+		if (chunkVals.size() == this->base) {
+			unsigned int matchingChunks = 0;
+			bool canAdd = true;
+			for (auto chunkVal: chunkVals)
+				if (chunkVal == 0 || chunkVal == chunkSize) {
+					matchingChunks += chunkVal/chunkSize;
+				} else {
+					canAdd = false;
 				}
 
-				if (
-					matchingChunks != this->base &&
-					matchingChunks != 0
-				) add = false;
+			std::cout << matchingChunks << " ";
 
-				if (add) total += chunkSize * this->base;
-				chunkVals.clear();
-			}
+			if (
+				canAdd &&
+				matchingChunks == this->base ||
+				matchingChunks == 0
+			) total += chunkSize * this->base;
+			chunkVals.clear();
 		}
 	}
 
@@ -59,5 +50,5 @@ unsigned int H_IFFFunction::checkChunks(
 }
 
 float H_IFFFunction::checkFitness(Genome* genome) {
-	return this->checkChunks(0, genome);
+	return this->genomeLength + this->checkChunks(0, genome);
 }
