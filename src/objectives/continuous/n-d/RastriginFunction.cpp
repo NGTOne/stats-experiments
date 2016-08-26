@@ -10,8 +10,8 @@ float RastriginFunction::checkFitness(Genome* genome) {
 	float total = 0;
 	for (unsigned int i = 0; i < this->genomeLength; i++) {
 		double value = genome->getIndex<double>(i);
-		total += pow(value, 2) - 10*cos(2*M_PI*value);
+		total += pow(value, 2) - 10.0*cos(2.0*M_PI*value);
 	}
 
-	return -(10*this->genomeLength + total);
+	return -(10.0*(float)this->genomeLength + total);
 }
