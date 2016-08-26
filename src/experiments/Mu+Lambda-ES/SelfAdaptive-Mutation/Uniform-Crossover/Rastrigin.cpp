@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
 		50,
 		new RastriginFunction(32),
 		new MuPlusLambdaES(
-			new UniformCrossover({0.3, 0.7}),
+			new UniformCrossover(1, {0.3, 0.7}),
 			new SelfAdaptiveMutation(false),
 			150
 		),
