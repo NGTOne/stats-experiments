@@ -19,7 +19,7 @@ for experiment in $(find src/experiments/* -print | egrep "pp$")
 do
 	dirname=${experiment/src\/experiments\//}
 	dirname=${dirname/\.cpp/}
-	targetDir=$(echo "$dirname" | sed 's/\/[^/]\+$//')
+	targetDir=$(dirname $dirname)
 
 	mkdir -p experiments-to-run/$targetDir
 	mkdir -p obj/experiments/$targetDir
