@@ -40,7 +40,7 @@ void StatsExperiment::addInstrument(
 	params... as
 ) {
 	std::stringstream ss;
-	ss << this->filePrefix << "-" << fileInfix <<
+	ss << this->filePrefix << fileInfix <<
 		"-" << this->runNumber << fileSuffix;
 
 	this->ea->addPopulationInstrumentation<InstrType>(
