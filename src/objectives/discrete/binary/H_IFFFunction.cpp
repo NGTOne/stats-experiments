@@ -34,12 +34,10 @@ unsigned int H_IFFFunction::checkChunks(
 					canAdd = false;
 				}
 
-			std::cout << matchingChunks << " ";
-
 			if (
 				canAdd &&
-				matchingChunks == this->base ||
-				matchingChunks == 0
+				(matchingChunks == this->base ||
+				matchingChunks == 0)
 			) total += chunkSize * this->base;
 			chunkVals.clear();
 		}
