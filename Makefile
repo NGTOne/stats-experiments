@@ -23,8 +23,10 @@ all: obj-dir objectives other-core experiments
 obj-dir:
 	./compile-scripts/make-obj-dir.sh
 
-experiments:
+experiments: FORCE
 	./compile-scripts/make-experiments.sh
+
+FORCE:
 
 objectives: objectives-base n-d-objectives 2d-objectives binary-objectives
 
