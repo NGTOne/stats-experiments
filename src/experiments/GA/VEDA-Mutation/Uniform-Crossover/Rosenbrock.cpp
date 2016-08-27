@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[]) {
 	StatsExperiment exper(
-		50,
+		150,
 		new RosenbrockFunction(32, -10, 10),
 		new VEDA_GA(
 			5,
@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
 		argv[1],
 		std::stoul(argv[2]),
 		0,
-		50
+		150
 	);
 
 	exper.run();

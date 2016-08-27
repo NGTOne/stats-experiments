@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[]) {
 	StatsExperiment exper(
-		50,
+		150,
 		new F8F2Function(32),
 		new VEDA_GA(
 			5,

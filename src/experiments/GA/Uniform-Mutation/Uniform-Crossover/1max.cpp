@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[]) {
 	StatsExperiment exper(
-		50,
+		150,
 		new OneMaxFunction(32),
 		new GA(
 			5,

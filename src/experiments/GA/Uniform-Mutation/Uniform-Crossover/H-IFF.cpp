@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[]) {
 	StatsExperiment exper(
-		50,
+		150,
 		new H_IFFFunction(32),
 		new GA(
 			5,

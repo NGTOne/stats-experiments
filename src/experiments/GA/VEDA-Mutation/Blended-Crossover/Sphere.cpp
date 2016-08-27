@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[]) {
 	StatsExperiment exper(
-		50,
+		150,
 		new SphereFunction(32, -1000, 1000),
 		new VEDA_GA(
 			5,
