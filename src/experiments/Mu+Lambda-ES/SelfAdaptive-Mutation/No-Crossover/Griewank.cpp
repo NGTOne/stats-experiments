@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 		argv[1],
 		std::stoul(argv[2]),
 		0,
-		2
+		400
 	);
 
 	exper.run();
