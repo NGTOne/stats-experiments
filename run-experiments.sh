@@ -19,3 +19,5 @@ do
 	done
 	echo " Done"
 done
+
+perl collate-results.pl
