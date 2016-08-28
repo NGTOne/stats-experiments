@@ -22,9 +22,13 @@ my @header = ("System", "Mutation", "Crossover", "Problem", "Run");
 
 use Tie::File;
 
+tie my @headerCSV, "Tie::File", "./results/$files[0].csv";
+push @header, split(/,/, $headerCSV[0]);
+push @csv, \@header;
+
 foreach my $i (0..$#files) {
 	print "$files[$i]\n";
-	$files[$i] =~ /([^\/]+)\/([^\/]+)\/([^\/]+)\/([^\/]+)\/best-fitness-run-(\d+)/;
+	$files[$i] =~ /([^\/]+)\/([^\/]+)\/([^\/]+)\/([^\/]+)\/best-fitnesses-run-(\d+)/;
 	my $system = $1;
 	my $mutation = $2;
 	my $crossover = $3;
@@ -33,11 +37,6 @@ foreach my $i (0..$#files) {
 	my @row = ($system, $mutation, $crossover, $problem, $run);
 
 	tie my @resultCSV, "Tie::File", "./results/$files[$i].csv";
-
-	if ($#csv == 0) {
-		push @header, split(/,/, $resultCSV[0]);
-		push @csv, \@header;
-	}
 
 	push @row, split(/,/, $resultCSV[1]);
 	push @csv, \@row;
