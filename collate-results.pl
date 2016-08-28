@@ -27,7 +27,6 @@ push @header, split(/,/, $headerCSV[0]);
 push @csv, \@header;
 
 foreach my $i (0..$#files) {
-	print "$files[$i]\n";
 	$files[$i] =~ /([^\/]+)\/([^\/]+)\/([^\/]+)\/([^\/]+)\/best-fitnesses-run-(\d+)/;
 	my $system = $1;
 	my $mutation = $2;
@@ -47,3 +46,5 @@ open (my $csvOutput, '>', "results.csv");
 foreach my $i (0..$#csv) {
 	print $csvOutput join(",", @{$csv[$i]})."\n";
 }
+
+close $csvOutput;
