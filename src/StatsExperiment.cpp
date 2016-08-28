@@ -43,5 +43,5 @@ StatsExperiment::~StatsExperiment() {
 }
 
 void StatsExperiment::run() {
-	this->ea->run(true);
+	this->ea->run(false);
 }
