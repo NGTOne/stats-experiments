@@ -18,17 +18,13 @@ sub wanted {
 find(\&wanted, "./results");
 
 my @csv;
-my @header = ("System", "Mutation", "Crossover", "Problem", "Run", "Target Reached",
-		"Generation of of Optimality", "Best Fitness",
-		"Generation of Best Fitness", "Appearances of Best Fitness");
-
-push @csv, \@header;
+my @header = ("System", "Mutation", "Crossover", "Problem", "Run");
 
 use Tie::File;
 
 foreach my $i (0..$#files) {
 	print "$files[$i]\n";
-	$files[$i] =~ /([^\/]+)\/([^\/]+)\/([^\/]+)\/([^\/]+)\/optimum-run-(\d+)/;
+	$files[$i] =~ /([^\/]+)\/([^\/]+)\/([^\/]+)\/([^\/]+)\/best-fitness-run-(\d+)/;
 	my $system = $1;
 	my $mutation = $2;
 	my $crossover = $3;
@@ -37,6 +33,12 @@ foreach my $i (0..$#files) {
 	my @row = ($system, $mutation, $crossover, $problem, $run);
 
 	tie my @resultCSV, "Tie::File", "./results/$files[$i].csv";
+
+	if ($#csv == 0) {
+		push @header, split(/,/, $resultCSV[0]);
+		push @csv, \@header;
+	}
+
 	push @row, split(/,/, $resultCSV[1]);
 	push @csv, \@row;
 }
