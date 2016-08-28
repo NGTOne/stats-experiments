@@ -29,11 +29,9 @@ StatsExperiment::StatsExperiment(
 	this->filePrefix = filePrefix;
 	this->runNumber = runNumber;
 
-	this->addInstrument<TargetReachedGeneration>(
-		"optimum-run",
-		".csv",
-		targetFitness,
-		epsilon
+	this->addInstrument<GenerationBestFitnessCSV>(
+		"best-fitnesses",
+		".csv"
 	);
 }
 
