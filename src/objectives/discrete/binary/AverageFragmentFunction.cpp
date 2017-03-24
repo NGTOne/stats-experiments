@@ -20,5 +20,8 @@ float AverageFragmentFunction::checkFitness(Genome* genome) {
 		}
 	}
 
+	if (currentLength > 0) numFragments++;
+	totalLength += currentLength;
+
 	return (float)totalLength/(float)numFragments;
 }
